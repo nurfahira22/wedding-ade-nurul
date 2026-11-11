@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Undangan Pernikahan - Ade & Nurul</title>
     
-    <!-- File CSS Bawaan & AOS Animation -->
-    <link rel="stylesheet" href="./Undangan Pernikahan_files/animate.min.css">
+    <!-- Animasi & Framework Eksternal yang Aman -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="./Undangan Pernikahan_files/style.css">
-    <link rel="stylesheet" href="./Undangan Pernikahan_files/bootstrap-vCaDZZbr.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
@@ -23,35 +22,19 @@
             --font-base: "Marcellus", serif;
         }
 
-        /* Animasi Ornamen */
-        @keyframes wave-left { 0% { transform: rotate(-3deg); } 100% { transform: rotate(4deg); } }
-        @keyframes wave-right { 0% { transform: rotate(3deg); } 100% { transform: rotate(-4deg); } }
-        .wave-left img { animation: wave-left 4s ease-in-out infinite alternate; }
-        .wave-right img { animation: wave-right 4s ease-in-out infinite alternate; }
-        
-        /* Frame Foto Mempelai */
-        .frame-mempelai::after {
-            content: ''; position: absolute; width: 100%; height: 100%;
-            background-image: url("https://unddigi.com/themes/ardita/frame-mempelai.webp");
-            background-size: contain; background-repeat: no-repeat; background-position: center; z-index: 1;
-        }
-    </style>
-
-    <!-- ========================================== -->
-    <!-- INJEKSI CSS OVERRIDE & KONTROL COVER -->
-    <!-- ========================================== -->
-    <style>
+        /* Perbaikan Tata Letak Utama Agar Pas di Layar HP */
         body, html {
             background-image: url('https://unddigi.com/themes/phinisi/bg-desktop.webp') !important;
             background-size: cover !important;
             background-position: center !important;
             background-attachment: fixed !important;
-            background-color: transparent !important;
+            background-color: #f7f3ed !important;
             overflow-x: hidden !important;
             scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
         }
         
-        /* Layout Pembungkus Utama (Mode HP di Tengah Layar) */
         #satuMomen {
             display: flex !important;
             justify-content: center !important;
@@ -66,6 +49,7 @@
             box-shadow: 0px 0px 30px rgba(0,0,0,0.4) !important;
             overflow: hidden !important;
             position: relative;
+            background-color: #fffbf3;
         }
         
         .satumomen_list {
@@ -74,6 +58,7 @@
             padding: 0 !important;
             margin: 0 !important;
             width: 100% !important;
+            list-style: none;
         }
         
         .satumomen_slide {
@@ -82,11 +67,12 @@
             background-image: url("https://unddigi.com/themes/phinisi/bg.webp") !important;
             background-size: cover !important;
             background-position: center !important;
-            padding: 40px 0 !important;
+            padding: 40px 15px !important;
             overflow: hidden;
+            box-sizing: border-box;
         }
 
-        /* Khusus Slide 1 Cover (Sampul Depan) dengan Efek Animasi Masuk */
+        /* Khusus Slide 1 Cover (Sampul Depan) */
         .satumomen_slide.satumomen_cover {
             height: 100vh !important;
             background-image: url("https://assets.satumomen.com/images/invitation/bg-section-104463941794182358.jpg") !important;
@@ -109,7 +95,24 @@
             pointer-events: none;
         }
 
-        /* Kelas Animasi Tambahan untuk Slide 1 s.d 4 saat Tombol Ditekan */
+        /* Animasi Ornamen */
+        @keyframes wave-left { 0% { transform: rotate(-3deg); } 100% { transform: rotate(4deg); } }
+        @keyframes wave-right { 0% { transform: rotate(3deg); } 100% { transform: rotate(-4deg); } }
+        .wave-left img { animation: wave-left 4s ease-in-out infinite alternate; }
+        .wave-right img { animation: wave-right 4s ease-in-out infinite alternate; }
+        
+        /* Frame Foto Mempelai */
+        .frame-mempelai {
+            position: relative;
+        }
+        .frame-mempelai::after {
+            content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0;
+            background-image: url("https://unddigi.com/themes/ardita/frame-mempelai.webp");
+            background-size: contain; background-repeat: no-repeat; background-position: center; z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Kelas Animasi Tambahan */
         .animate-in {
             opacity: 0;
             transform: translateY(30px);
@@ -128,6 +131,7 @@
             padding: 30px;
             margin: 0 auto;
             position: relative;
+            box-sizing: border-box;
         }
         
         .lingkaran-icon {
@@ -171,8 +175,6 @@
         }
         @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
-    <!-- ========================================== -->
-
 </head>
 <body>
     <main id="app">
@@ -190,7 +192,7 @@
             <div class="satumomen_track">
                 <ul class="satumomen_list">
                     
-                    <!-- 1. BAGIAN COVER DEPAN (BERSIH TANPA BUNGA) -->
+                    <!-- 1. BAGIAN COVER DEPAN -->
                     <li id="cover-section" class="container-mobile satumomen_slide satumomen_cover">
                         <div class="workspace cover h-100 position-relative">
                             <div class="content h-100 w-100 mx-auto">
@@ -218,11 +220,11 @@
                     <li class="container-mobile satumomen_slide position-relative animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <!-- Ornamen Bunga Animasi Kiri -->
                         <div class="wave-left" style="width: 35%; position: absolute; left: -10px; top: 20px; z-index: 3; pointer-events: none;">
-                            <img src="./Undangan Pernikahan_files/flowers.webp" onerror="this.src='https://unddigi.com/themes/ardita/flowers.webp'" class="w-100 h-auto">
+                            <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" alt="Bunga">
                         </div>
                         <!-- Ornamen Bunga Animasi Kanan -->
                         <div class="wave-right" style="width: 35%; position: absolute; right: -10px; bottom: 20px; z-index: 3; pointer-events: none;">
-                            <img src="./Undangan Pernikahan_files/flowers.webp" onerror="this.src='https://unddigi.com/themes/ardita/flowers.webp'" class="w-100 h-auto">
+                            <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" alt="Bunga">
                         </div>
 
                         <div class="workspace" style="position: relative; z-index: 2;">
@@ -263,11 +265,11 @@
                                             <div class="w-100 mx-auto" style="max-width: 240px;">
                                                 <div class="w-100 position-relative d-flex align-items-center justify-content-center" style="padding-bottom: 115%;">
                                                     <div class="wave-left" style="width: 51%; position: absolute; left: -13%; top: 1%; transform: rotate(356deg);">
-                                                        <img src="./Undangan Pernikahan_files/flowers.webp" onerror="this.src='https://unddigi.com/themes/ardita/flowers.webp'" class="w-100 h-auto" style="pointer-events: none;">
+                                                        <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga">
                                                     </div>
                                                     <div class="frame-mempelai w-100 h-100 d-flex align-items-center justify-content-center" style="position: absolute; top: 0px;">
                                                         <div style="height: 209px; width: 61%; overflow: hidden; border-radius: 100%;">
-                                                            <img src="./Undangan Pernikahan_files/935924-gallery-RvFx0NvW8I.jpg" onerror="this.src='https://assets.satumomen.com/images/invitation/935924-gallery-RvFx0NvW8I.jpg'" style="width: 100%; height: 100%; object-fit: cover;">
+                                                            <img src="https://assets.satumomen.com/images/invitation/935924-gallery-RvFx0NvW8I.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Groom">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -296,11 +298,11 @@
                                             <div class="w-100 mx-auto" style="max-width: 240px;">
                                                 <div class="w-100 position-relative d-flex align-items-center justify-content-center" style="padding-bottom: 115%;">
                                                     <div class="wave-left" style="width: 51%; position: absolute; left: -13%; top: 1%; transform: rotate(356deg);">
-                                                        <img src="./Undangan Pernikahan_files/flowers.webp" onerror="this.src='https://unddigi.com/themes/ardita/flowers.webp'" class="w-100 h-auto" style="pointer-events: none;">
+                                                        <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga">
                                                     </div>
                                                     <div class="frame-mempelai w-100 h-100 d-flex align-items-center justify-content-center" style="position: absolute; top: 0px;">
                                                         <div style="height: 209px; width: 61%; overflow: hidden; border-radius: 100%;">
-                                                            <img src="./Undangan Pernikahan_files/935924-gallery-85LXtegyY0.jpg" onerror="this.src='https://assets.satumomen.com/images/invitation/935924-gallery-85LXtegyY0.jpg'" style="width: 100%; height: 100%; object-fit: cover;">
+                                                            <img src="https://assets.satumomen.com/images/invitation/935924-gallery-85LXtegyY0.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Bride">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -380,7 +382,7 @@
                                         <!-- Kotak Rekening BRI -->
                                         <div style="border: 1px solid var(--inv-border); padding: 15px; border-radius: 10px; width: 100%; text-align: center; background-color: rgba(255,255,255,0.7); margin-bottom: 15px;">
                                             <h4 style="margin-bottom: 5px; font-weight: bold; color: var(--inv-accent); font-size: 18px;">BANK BRI</h4>
-                                            <p id="no-rek-bri" style="font-size: 17px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 1px;"> 768601029876502</p>
+                                            <p id="no-rek-bri" style="font-size: 17px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 1px;">768601029876502</p>
                                             <p style="font-size: 13px; margin-bottom: 10px; color: var(--inv-base);">a.n Nur Ade Nurdin</p>
                                             <button class="btn btn-sm rounded-pill w-100" onclick="copyRekening('no-rek-bri')" style="background-color: var(--inv-accent); color: white; border: none; padding: 6px;">Salin No. Rekening</button>
                                         </div>
@@ -388,7 +390,7 @@
                                         <!-- Kotak Akun DANA -->
                                         <div style="border: 1px solid var(--inv-border); padding: 15px; border-radius: 10px; width: 100%; text-align: center; background-color: rgba(255,255,255,0.7);">
                                             <h4 style="margin-bottom: 5px; font-weight: bold; color: var(--inv-accent); font-size: 18px;">DANA</h4>
-                                            <p id="no-dana" style="font-size: 18px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 2px;"> 082335699411</p>
+                                            <p id="no-dana" style="font-size: 18px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 2px;">082335699411</p>
                                             <p style="font-size: 13px; margin-bottom: 10px; color: var(--inv-base);">a.n Nur Ade Nurdin</p>
                                             <button class="btn btn-sm rounded-pill w-100" onclick="copyRekening('no-dana')" style="background-color: var(--inv-accent); color: white; border: none; padding: 6px;">Salin No. DANA</button>
                                         </div>
