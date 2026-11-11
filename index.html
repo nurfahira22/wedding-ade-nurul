@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Undangan Pernikahan - Ade & Nurul</title>
     
-    <!-- Animasi & Framework Eksternal yang Aman -->
+    <!-- Framework Eksternal -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -22,9 +22,9 @@
             --font-base: "Marcellus", serif;
         }
 
-        /* Perbaikan Tata Letak Utama Agar Pas di Layar HP */
+        /* Latar Belakang Desktop Mengambil dari Folder Lokal */
         body, html {
-            background-image: url('https://unddigi.com/themes/phinisi/bg-desktop.webp') !important;
+            background-image: url('./Undangan%20Pernikahan_files/bg-desktop.webp') !important;
             background-size: cover !important;
             background-position: center !important;
             background-attachment: fixed !important;
@@ -72,7 +72,6 @@
             box-sizing: border-box;
         }
 
-        /* Khusus Slide 1 Cover (Sampul Depan) */
         .satumomen_slide.satumomen_cover {
             height: 100vh !important;
             background-image: url("https://assets.satumomen.com/images/invitation/bg-section-104463941794182358.jpg") !important;
@@ -95,24 +94,22 @@
             pointer-events: none;
         }
 
-        /* Animasi Ornamen */
         @keyframes wave-left { 0% { transform: rotate(-3deg); } 100% { transform: rotate(4deg); } }
         @keyframes wave-right { 0% { transform: rotate(3deg); } 100% { transform: rotate(-4deg); } }
         .wave-left img { animation: wave-left 4s ease-in-out infinite alternate; }
         .wave-right img { animation: wave-right 4s ease-in-out infinite alternate; }
         
-        /* Frame Foto Mempelai */
+        /* Bingkai (Frame) Mengambil dari Folder Lokal */
         .frame-mempelai {
             position: relative;
         }
         .frame-mempelai::after {
             content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0;
-            background-image: url("https://unddigi.com/themes/ardita/frame-mempelai.webp");
+            background-image: url('./Undangan%20Pernikahan_files/frame-mempelai.webp');
             background-size: contain; background-repeat: no-repeat; background-position: center; z-index: 1;
             pointer-events: none;
         }
 
-        /* Kelas Animasi Tambahan */
         .animate-in {
             opacity: 0;
             transform: translateY(30px);
@@ -150,7 +147,6 @@
             justify-content: center;
         }
 
-        /* Tombol Musik Melayang */
         #btn-music {
             position: fixed;
             bottom: 20px;
@@ -183,7 +179,6 @@
             <source src="https://assets.satumomen.com/musics/lagu-bugis-pengantar-tidur-alosi-ripolo-dua-instrumen-piano.mp3" type="audio/mpeg">
         </audio>
 
-        <!-- Tombol Musik Melayang -->
         <button id="btn-music" onclick="toggleMusic()">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M9 13c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm3-3v-3h2V8h-2v2zm-1 3V4.5l-6 1.5V13c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/></svg>
         </button>
@@ -192,7 +187,7 @@
             <div class="satumomen_track">
                 <ul class="satumomen_list">
                     
-                    <!-- 1. BAGIAN COVER DEPAN -->
+                    <!-- 1. COVER -->
                     <li id="cover-section" class="container-mobile satumomen_slide satumomen_cover">
                         <div class="workspace cover h-100 position-relative">
                             <div class="content h-100 w-100 mx-auto">
@@ -216,28 +211,26 @@
                         </div>
                     </li>
 
-                    <!-- 2. SLIDE GALERI DUA FOTO MEMPELAI -->
+                    <!-- 2. GALERI -->
                     <li class="container-mobile satumomen_slide position-relative animate-in" data-aos="fade-up" data-aos-duration="1000">
-                        <!-- Ornamen Bunga Kiri URL Diperbaiki -->
                         <div class="wave-left" style="width: 35%; position: absolute; left: -10px; top: 20px; z-index: 3; pointer-events: none;">
-                            <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" alt="Ornamen Bunga">
+                            <img src="./Undangan%20Pernikahan_files/flowers.webp" class="w-100 h-auto" alt="Ornamen Bunga">
                         </div>
-                        <!-- Ornamen Bunga Kanan URL Diperbaiki -->
                         <div class="wave-right" style="width: 35%; position: absolute; right: -10px; bottom: 20px; z-index: 3; pointer-events: none;">
-                            <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" alt="Ornamen Bunga">
+                            <img src="./Undangan%20Pernikahan_files/flowers.webp" class="w-100 h-auto" alt="Ornamen Bunga">
                         </div>
 
                         <div class="workspace" style="position: relative; z-index: 2;">
                             <div class="content w-100 mx-auto text-center">
                                 <div class="position-relative mx-auto my-4" style="max-width: 280px;">
-                                    <img src="https://assets.satumomen.com/images/galleries/935924-gallery-hzmKLGEnqU.jpg" class="w-100 rounded shadow mb-4" style="transform: rotate(-3deg); border: 4px solid var(--inv-border); background-color: white; padding: 6px;" alt="Galeri Ade dan Nurul 1">
-                                    <img src="https://assets.satumomen.com/images/galleries/935924-gallery-Cd2VZE3j9O.jpg" class="w-100 rounded shadow" style="transform: rotate(3deg); border: 4px solid var(--inv-border); background-color: white; padding: 6px;" alt="Galeri Ade dan Nurul 2">
+                                    <img src="./Undangan%20Pernikahan_files/935924-gallery-hzmKLGEnqU.jpg" class="w-100 rounded shadow mb-4" style="transform: rotate(-3deg); border: 4px solid var(--inv-border); background-color: white; padding: 6px;" alt="Galeri 1">
+                                    <img src="./Undangan%20Pernikahan_files/935924-gallery-Cd2VZE3j9O.jpg" class="w-100 rounded shadow" style="transform: rotate(3deg); border: 4px solid var(--inv-border); background-color: white; padding: 6px;" alt="Galeri 2">
                                 </div>
                             </div>
                         </div>
                     </li>
 
-                    <!-- 3. AYAT SUCI AL-QURAN -->
+                    <!-- 3. QUOTE -->
                     <li class="container-mobile satumomen_slide animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -252,7 +245,7 @@
                         </div>
                     </li>
 
-                    <!-- 4. PROFIL MEMPELAI PRIA (Tautan Foto Fallback Diperbaiki) -->
+                    <!-- 4. GROOM -->
                     <li class="container-mobile satumomen_slide animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -264,14 +257,13 @@
                                         <div class="w-100 text-center">
                                             <div class="w-100 mx-auto" style="max-width: 240px;">
                                                 <div class="w-100 position-relative d-flex align-items-center justify-content-center" style="padding-bottom: 115%;">
-                                                    <!-- Ornamen Bunga Profil -->
                                                     <div class="wave-left" style="width: 51%; position: absolute; left: -13%; top: 1%; transform: rotate(356deg);">
-                                                        <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga Profil">
+                                                        <img src="./Undangan%20Pernikahan_files/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga Profil">
                                                     </div>
                                                     <div class="frame-mempelai w-100 h-100 d-flex align-items-center justify-content-center" style="position: absolute; top: 0px;">
                                                         <div style="height: 209px; width: 61%; overflow: hidden; border-radius: 100%; display:flex; justify-content:center; align-items:center;">
-                                                            <!-- FOTO GROOM (Diganti link fallback agar aman) -->
-                                                            <img src="https://assets.satumomen.com/images/galleries/935924-gallery-hzmKLGEnqU.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Profil Groom">
+                                                            <!-- Foto Groom -->
+                                                            <img src="./Undangan%20Pernikahan_files/935924-gallery-RvFx0NvW8I.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Profil Groom">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -287,7 +279,7 @@
                         </div>
                     </li>
 
-                    <!-- 5. PROFIL MEMPELAI WANITA (Tautan Foto Fallback Diperbaiki) -->
+                    <!-- 5. BRIDE -->
                     <li class="container-mobile satumomen_slide animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -299,14 +291,13 @@
                                         <div class="w-100 text-center">
                                             <div class="w-100 mx-auto" style="max-width: 240px;">
                                                 <div class="w-100 position-relative d-flex align-items-center justify-content-center" style="padding-bottom: 115%;">
-                                                    <!-- Ornamen Bunga Profil -->
                                                     <div class="wave-left" style="width: 51%; position: absolute; left: -13%; top: 1%; transform: rotate(356deg);">
-                                                        <img src="https://unddigi.com/themes/ardita/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga Profil">
+                                                        <img src="./Undangan%20Pernikahan_files/flowers.webp" class="w-100 h-auto" style="pointer-events: none;" alt="Bunga Profil">
                                                     </div>
                                                     <div class="frame-mempelai w-100 h-100 d-flex align-items-center justify-content-center" style="position: absolute; top: 0px;">
                                                         <div style="height: 209px; width: 61%; overflow: hidden; border-radius: 100%; display:flex; justify-content:center; align-items:center;">
-                                                            <!-- FOTO BRIDE (Diganti link fallback agar aman) -->
-                                                            <img src="https://assets.satumomen.com/images/galleries/935924-gallery-Cd2VZE3j9O.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Profil Bride">
+                                                            <!-- Foto Bride -->
+                                                            <img src="./Undangan%20Pernikahan_files/935924-gallery-85LXtegyY0.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Profil Bride">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -322,7 +313,7 @@
                         </div>
                     </li>
 
-                    <!-- 6. JADWAL ACARA -->
+                    <!-- 6. ACARA -->
                     <li class="container-mobile satumomen_slide animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -331,7 +322,6 @@
                                         <div class="color-accent" style="font-size: 40px; line-height: 1.2; font-family: 'English111 Vivace BT', cursive;">Save The Date</div>
                                     </div>
                                     
-                                    <!-- KOTAK AKAD -->
                                     <div class="box-informasi mb-5" data-aos="zoom-in" data-aos-duration="800">
                                         <div class="lingkaran-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="24" width="24" fill="currentColor">
@@ -347,7 +337,6 @@
                                         </div>
                                     </div>
                                     
-                                    <!-- KOTAK RESEPSI -->
                                     <div class="box-informasi" data-aos="zoom-in" data-aos-duration="800">
                                         <div class="lingkaran-icon">
                                             <svg height="24" viewBox="0 0 56 56" width="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
@@ -367,7 +356,7 @@
                         </div>
                     </li>
 
-                    <!-- 7. AMPLOP DIGITAL (WEDDING GIFT) -->
+                    <!-- 7. GIFT -->
                     <li class="container-mobile satumomen_slide animate-in" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -383,7 +372,6 @@
                                             Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun, jika anda ingin memberikan tanda kasih secara online, anda dapat menggunakan 'Wedding Gift' di bawah ini. Terima kasih atas perhatian dan kebaikan hati Anda.
                                         </p>
                                         
-                                        <!-- Kotak Rekening BRI -->
                                         <div style="border: 1px solid var(--inv-border); padding: 15px; border-radius: 10px; width: 100%; text-align: center; background-color: rgba(255,255,255,0.7); margin-bottom: 15px;">
                                             <h4 style="margin-bottom: 5px; font-weight: bold; color: var(--inv-accent); font-size: 18px;">BANK BRI</h4>
                                             <p id="no-rek-bri" style="font-size: 17px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 1px;">768601029876502</p>
@@ -391,7 +379,6 @@
                                             <button class="btn btn-sm rounded-pill w-100" onclick="copyRekening('no-rek-bri')" style="background-color: var(--inv-accent); color: white; border: none; padding: 6px;">Salin No. Rekening</button>
                                         </div>
 
-                                        <!-- Kotak Akun DANA -->
                                         <div style="border: 1px solid var(--inv-border); padding: 15px; border-radius: 10px; width: 100%; text-align: center; background-color: rgba(255,255,255,0.7);">
                                             <h4 style="margin-bottom: 5px; font-weight: bold; color: var(--inv-accent); font-size: 18px;">DANA</h4>
                                             <p id="no-dana" style="font-size: 18px; margin-bottom: 5px; font-weight: bold; color: var(--inv-base); letter-spacing: 2px;">082335699411</p>
@@ -405,7 +392,7 @@
                         </div>
                     </li>
 
-                    <!-- 8. PENUTUP & TERIMA KASIH -->
+                    <!-- 8. PENUTUP -->
                     <li class="container-mobile satumomen_slide animate-in" style="padding-bottom: 60px !important;" data-aos="fade-up" data-aos-duration="1000">
                         <div class="workspace">
                             <div class="content w-100 mx-auto">
@@ -434,12 +421,10 @@
         </div>
     </main>
 
-    <!-- Script AOS Animation & Interaksi Tombol Buka -->
+    <!-- Script Interaksi -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            once: true,
-        });
+        AOS.init({ once: true });
 
         function bukaUndangan() {
             const cover = document.getElementById('cover-section');
@@ -448,7 +433,6 @@
 
             cover.classList.add('hidden-cover');
             
-            // Memicu animasi bergerak pada slide saat tombol dibuka
             const animatedSlides = document.querySelectorAll('.animate-in');
             animatedSlides.forEach(slide => {
                 slide.classList.add('active-anim');
@@ -458,7 +442,6 @@
                 btnMusic.style.display = 'flex';
                 btnMusic.classList.add('playing');
             }).catch(e => {
-                console.log("Audio autoplay dibatasi browser:", e);
                 btnMusic.style.display = 'flex';
             });
         }
@@ -480,7 +463,6 @@
             navigator.clipboard.writeText(copyText).then(() => {
                 alert("Berhasil disalin: " + copyText);
             }).catch(err => {
-                console.error("Gagal menyalin: ", err);
                 alert("Gagal menyalin. Silakan blok dan salin manual.");
             });
         }
